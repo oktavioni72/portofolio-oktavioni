@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Oktavioni Ismawati | IT Administrator</title>
+        <meta name="description"content="Portfolio Oktavioni Ismawati - IT Administrator, IT Support, Network, System Administration dan Website Development">
+        <style>
+        /* ========================= RESET ========================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #0b0d10;
+            color: #f5f5f5;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .wrap {
+            width: min(1100px, calc(100% - 40px));
+            margin: auto;
+        }
+        /* ========================= HEADER ========================= */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(11, 13, 16, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #282d34;
+        }
+        .nav {
+            height: 70px;
+            width: min(1100px, calc(100% - 40px));
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+        .logo span {
+            color: #e21b23;
+        }   
+        #nav {
+            display: flex;
+            gap: 25px;
+            color: #aeb4bd;
+            font-size: 14px;
+        }
+        #nav a {
+            transition: 0.2s;        
+        }
+        #nav a:hover {
+            color: #ffffff;
+        }
+        #menu {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 26px;
+            cursor: pointer;
+        }
+        /* ========================= HERO ========================= */
+        .hero {
+            padding: 110px 0 90px;
+            border-bottom: 1px solid #282d34;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 0.65fr;
+            gap: 70px;
+            align-items: center;
+        }
+        .tag {
+            color: #e21b23;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+        .intro h1 {
+            font-size: clamp(55px, 9vw, 100px);
+            line-height: 0.9;
+            letter-spacing: -5px;
+            margin-bottom: 28px;
+        }
+        .intro h1 span {
+            color: #aeb4bd;
+        }
+        .summary {
+            max-width: 700px;
+            color: #aeb4bd;
+            font-size: 19px;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 12px 22px;
+            background: #e21b23;
+            border-radius: 7px;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+        .btn:hover {
+            background: #ff2c34;
+            transform: translateY(-2px);
+        }
+        /* ========================= FOTO ========================= */
+        .photo-card {
+            overflow: hidden;
+            border: 1px solid #30363e;
+            border-radius: 18px;
+            background: #151a20;
+        }
+        .photo-card img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            display: block;
+            object-fit: cover;
+        }
+        .photo-info {
+            padding: 18px;
+        }
+        .photo-info b {
+            display: block;
+            font-size: 18px;
+        }
+        .photo-info small {
+            display: block;
+            margin-top: 4px;
+            color: #aeb4bd;
+        }
+        /* ========================= SECTION ========================= */
+        .section {
+            padding: 90px 0;
+        }
+        .dark {
+            background: #11151a;
+            border-top: 1px solid #282d34;
+            border-bottom: 1px solid #282d34;
+        }
+        h2 {
+            font-size: 44px;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 32px;
+        }
+        /* ========================= PROFIL ========================= */
+        .profile-box {
+            max-width: 880px;
+            padding: 30px;
+            border-left: 3px solid #e21b23;
+            background: #151a20;
+            color: #d0d4da;
+            border-radius: 0 10px 10px 0;
+        }
+        /* ========================= EXPERIENCE ========================= */
+        .job {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 40px;
+            padding: 35px 0;
+            border-top: 1px solid #30363e;
+        }
+        .date {
+            color: #e21b23;
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .job h3 {
+            font-size: 23px;
+            margin-bottom: 3px;
+        }
+        .job h4 {
+            color: #aeb4bd;
+            margin-bottom: 17px;
+            font-weight: 500;
+        }
+        .job ul {
+            padding-left: 20px;
+            color: #cbd0d7;
+        }
+        .job li {
+            margin: 7px 0;
+        }
+        /* ========================= SKILLS ========================= */
+        .skills {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .skills div {
+            padding: 18px 20px;
+            background: #151a20;
+            border: 1px solid #30363e;
+            border-radius: 9px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .skills div:hover {
+            border-color: #e21b23;
+            transform: translateY(-2px);
+        }
+        /* ========================= EDUCATION ========================= */
+        .education {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        .edu {
+            padding: 22px;
+            background: #151a20;
+            border: 1px solid #30363e;
+            border-radius: 10px;
+        }
+        .edu span {
+            color: #e21b23;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .edu h3 {
+            margin: 8px 0 2px;
+        }
+        .edu p {
+            color: #aeb4bd;
+        }
+        /* ========================= CONTACT ========================= */
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .muted {
+            color: #aeb4bd;
+        }
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            font-weight: 600;
+        }
+        .contacts a:hover {
+            color: #e21b23;
+        }
+        /* ========================= FOOTER ========================= */
+            footer {
+                text-align: center;
+                padding: 30px;
+                color: #8f969f;
+                border-top: 1px solid #282d34;
+                font-size: 13px;
+            }
+            /* ========================= MOBILE ========================= */
+            @media (max-width: 760px) {
+                #menu {
+                    display: block;
+                }
+                #nav {
+                    display: none;
+                    position: absolute;
+                    top: 70px;
+                    left: 0;
+                    right: 0;
+                    padding: 20px;
+                    background: #11151a;
+                    flex-direction: column;
+                    gap: 16px;
+                    border-bottom: 1px solid #30363e;
+                }
+                #nav.open {
+                    display: flex;
+                }
+                .hero {
+                    padding: 70px 0;
+                }
+                .hero-grid {
+                    grid-template-columns: 1fr;
+                }
+                .photo-card {
+                    max-width: 360px;
+                }
+                .job {
+                    grid-template-columns: 1fr;
+                    gap: 8px;
+                }
+                .skills {
+                    grid-template-columns: 1fr;
+                }
+                .education {
+                    grid-template-columns: 1fr;
+                }
+                .contact {
+                    grid-template-columns: 1fr;
+                }
+                .wrap {
+                    width: min(1100px, calc(100% - 28px));
+                }
+                h2 {
+                    font-size: 36px;
+                }
+                .intro h1 {
+                    letter-spacing: -3px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- ================= HEADER ================= -->
+        <header>
+            <nav class="nav">
+                <a href="#home" class="logo">
+                    OI<span>.</span>
+                </a>
+                <button id="menu">
+                    ☰
+                </button>
+                <div id="nav">
+                    <a href="#home">
+                        Home
+                    </a>
+                    <a href="#profil">
+                        Profil
+                    </a>
+                    <a href="#pengalaman">
+                        Pengalaman
+                    </a>
+                    <a href="#kemampuan">
+                        Kemampuan
+                    </a>
+                    <a href="#pendidikan">
+                        Pendidikan
+                    </a>
+                    <a href="#kontak">
+                        Kontak
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <main>
+        <!-- ================= HOME ================= -->
+        <section id="home" class="hero">
+            <div class="wrap hero-grid">
+                <div class="intro">
+                    <p class="tag">
+                        IT ADMINISTRATOR / IT SUPPORT
+                    </p>
+                    <h1>
+                        Oktavioni
+                        <br>
+                        <span>
+                            Ismawati
+                        </span>
+                    </h1>
+                    <p class="summary">
+                        IT Support, jaringan, sistem,
+                        technical support, serta
+                        pengembangan dan maintenance website.
+                    </p>
+                    <a href="#profil" class="btn">
+                        Lihat Profil
+                    </a>
+                </div>
+                <div class="photo-card">
+                    <!--
+                    GANTI URL FOTO DI BAWAH
+                    dengan foto pribadi lu.
+                    Contoh:
+                    src="foto.jpg"
+                    -->
+                    <img
+                        src="foto.jpeg"
+                        alt="Foto Oktavioni Ismawati"
+                    >
+                    <div class="photo-info">
+                        <b>
+                            IT Administrator / IT Support
+                        </b>
+                        <small>
+                            Tangerang, Banten
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================= PROFIL ================= -->
+        <section id="profil" class="section">
+            <div class="wrap">
+                <p class="tag">
+                    PROFIL
+                </p>
+                <h2>
+                    Tentang Saya
+                </h2>
+                <div class="profile-box">
+                    Memiliki pengalaman di bidang IT,
+                    khususnya IT Support, jaringan, sistem,
+                    dan pengembangan website.
+
+                    Terbiasa menangani kebutuhan IT secara mandiri,
+                    mulai dari instalasi, konfigurasi,
+                    troubleshooting perangkat dan jaringan,
+                    hingga pengelolaan serta maintenance website.
+
+                    Mampu bekerja secara mandiri maupun bersama tim
+                    dan cepat beradaptasi dengan kebutuhan teknis baru.
+                </div>
+            </div>
+        </section>
+        <!-- ================= PENGALAMAN ================= -->
+        <section id="pengalaman" class="section dark">
+            <div class="wrap">
+                <p class="tag">
+                    PENGALAMAN KERJA
+                </p>
+                <h2>
+                    Pengalaman
+                </h2>
+                <!-- AKPER HKJ -->
+                <article class="job">
+                    <div class="date">
+                        30 Maret 2026
+                        <br>
+                        — Sekarang
+                    </div>
+                    <div>
+                        <h3>
+                            IT
+                        </h3>
+                        <h4>
+                            Akademi Keperawatan Husada Karya Jaya
+                        </h4>
+                        <ul>
+                            <li>
+                                Mengelola seluruh kebutuhan IT institusi,
+                                termasuk hardware, software, jaringan,
+                                sistem, dan website.
+                            </li>
+                            <li>
+                                Mengelola, mengembangkan, dan melakukan
+                                maintenance website, termasuk hosting,
+                                domain, dan database.
+                            </li>
+                            <li>
+                                Menangani instalasi, konfigurasi,
+                                troubleshooting, serta maintenance
+                                perangkat dan jaringan.
+                            </li>
+                            <li>
+                                Memberikan technical support kepada
+                                seluruh pengguna dan unit kerja.
+                            </li>
+                            <li>
+                                Melakukan monitoring dan pemeliharaan
+                                infrastruktur serta sistem IT.
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+                <!-- ICT UTA -->
+                <article class="job">
+                    <div class="date">
+                        08 Desember 2025
+                        <br>
+                        — 13 Maret 2026
+                    </div>
+                    <div>
+                        <h3>
+                            Magang ICT
+                        </h3>
+                        <h4>
+                            Universitas 17 Agustus 1945 Jakarta
+                        </h4>
+                        <ul>
+                            <li>
+                                Membantu pengelolaan dan pemeliharaan
+                                sistem teknologi informasi.
+                            </li>
+                            <li>
+                                Melakukan instalasi, konfigurasi,
+                                dan troubleshooting perangkat
+                                komputer dan jaringan.
+                            </li>
+                            <li>
+                                Melakukan pencatatan serta pelaporan
+                                kegiatan operasional ICT.
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- ================= KEMAMPUAN ================= -->
+        <section id="kemampuan" class="section">
+            <div class="wrap">
+                <p class="tag">
+                    KEMAMPUAN
+                </p>
+                <h2>
+                    Technical Skills
+                </h2>
+                <div class="skills">
+                    <div>
+                        IT Support & Technical Support
+                    </div>
+                    <div>
+                        Hardware & Software Troubleshooting
+                    </div>
+                    <div>
+                        Network Administration
+                    </div>
+                    <div>
+                        System Administration
+                    </div>
+                    <div>
+                        Website Development & Maintenance
+                    </div>
+                    <div>
+                        Hosting, Domain & Database Management
+                    </div>
+                    <div>
+                        Windows
+                    </div>
+                    <div>
+                        Linux
+                    </div>
+                    <div>
+                        Instalasi & Konfigurasi Sistem
+                    </div>
+                    <div>
+                        Maintenance & Monitoring IT
+                    </div>
+                    <div>
+                        User Support
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================= PENDIDIKAN ================= -->
+        <section id="pendidikan" class="section dark">
+            <div class="wrap">
+                <p class="tag">
+                    PENDIDIKAN
+                </p>
+                <h2>
+                    Pendidikan
+                </h2>
+                <div class="education">
+                    <div class="edu">
+                        <span>
+                            2022 — 2026
+                        </span>
+                        <h3>
+                            S1 — Teknik Informatika
+                        </h3>
+                        <p>
+                            Universitas 17 Agustus 1945 Jakarta
+                        </p>
+                    </div>
+                    <div class="edu">
+                        <span>
+                            2018 — 2021
+                        </span>
+                        <h3>
+                            Teknik Komputer dan Jaringan
+                        </h3>
+                        <p>
+                            SMK YP Karya 2 Tangerang
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ================= KONTAK ================= -->
+        <section id="kontak" class="section">
+            <div class="wrap contact">
+                <div>
+                    <p class="tag">
+                        KONTAK
+                    </p>
+                    <h2>
+                        Hubungi Saya
+                    </h2>
+                    <p class="muted">
+                        Untuk kebutuhan IT Support,
+                        jaringan, sistem, maupun website.
+                    </p>
+                </div>
+                <div class="contacts">
+                    <a href="https://wa.me/6285138002099" target="_blank" rel="noopener">
+                        WhatsApp: 0851 3800 2099
+                    </a>
+                    <a href="mailto:oktavioni.72@gmail.com">
+                        oktavioni.72@gmail.com
+                    </a>
+                    <span>
+                        Tangerang, Banten
+                    </span>
+                </div>
+            </div>
+        </section>
+        </main>
+        <!-- ================= FOOTER ================= -->
+        <footer>
+            ©
+            <span id="year">
+            </span>
+            Oktavioni Ismawati
+        </footer>
+        <script>
+            /* ========================= MOBILE MENU ========================= */
+            const menu =
+                document.getElementById("menu");
+            const nav =
+                document.getElementById("nav");
+            menu.addEventListener("click", function () {
+                nav.classList.toggle("open");
+            });
+            document
+                .querySelectorAll("#nav a")
+                .forEach(function (link) {
+                    link.addEventListener(
+                        "click",
+                        function () {
+                            nav.classList.remove("open");
+                        }
+                    );
+                });
+            /* ========================= YEAR ========================= */
+            document.getElementById("year").textContent =
+                new Date().getFullYear();
+        </script>
+    </body>
+</html>
